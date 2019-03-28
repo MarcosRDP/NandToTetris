@@ -1,0 +1,21 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/FullAdder.hdl
+
+/**
+ * Computes the sum of three bits.
+ */
+
+CHIP FullAdder {
+    IN a, b, c;  // 1-bit inputs
+    OUT sum,     // Right bit of a + b + c
+        carry;   // Left bit of a + b + c
+
+    PARTS:
+    Xor(a=b,b=c,out=way); //Faz o Xor de ambos, caso sejam iguais o resultado é 0, caso sejam diferentes o resultado é 1
+    HalfAdder(a=a,b=way,sum=sum,carry=loki); //Soma o resultado do anterior com mais um valor e com isso tem-se um carry e a soma final
+    And(a=b,b=c,out=way2); //Caso b e c sejam positivas vai ter carry
+    Or(a=way2,b=loki,out=carry); //Caso o resultado da anterior ou o carry da soma sejam positicos, significa que houve carry.
+    //Observação, para haver carry temos três possibilidades a&b or a&c or b&c.
+}

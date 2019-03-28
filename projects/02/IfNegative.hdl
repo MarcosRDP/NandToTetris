@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/And.hdl
+
+/**
+ * If gate: 
+ * out = 1 if in is negative
+ * out = 0 if in is positive
+ */
+
+CHIP IfNegative {
+    IN in[16];
+    OUT out;
+
+    PARTS:
+    And(a=in[15],b=in[15],out=out); //Caso a entrada seja negativa, isso é verificado pelo digito mais a frente, caso ele seja positivo, a saída também é
+}

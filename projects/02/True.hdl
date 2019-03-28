@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/And.hdl
+
+/**
+ * True gate: 
+ * out = 1
+ */
+
+CHIP True {
+    IN in;
+    OUT out;
+
+    PARTS:
+    Xor(a=in,b=in,out=loki); //Gera um valor zero, pois as entradas vão se iguais
+    Not(in=loki,out=out); //Negua a entrada zero, a transformando em 1
+}

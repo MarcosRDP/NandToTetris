@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/And.hdl
+
+/**
+ * 16-bit bitwise Value: 
+ * for i = 0..15: out[i] = in[i]
+ */
+
+CHIP Value16 {
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+    Not16(in=in,out=loki); //Negua as 16 entradas
+    Not16(in=loki,out=out); //Negua novamente, tendo assim o mesmo valor
+}
