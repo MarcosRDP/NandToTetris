@@ -1,0 +1,84 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/05/CPU.hdl
+
+/**
+ * The Hack CPU (Central Processing unit), consisting of an ALU,
+ * two registers named A and D, and a program counter named PC.
+ * The CPU is designed to fetch and execute instructions written in 
+ * the Hack machine language. In particular, functions as follows:
+ * Executes the inputted instruction according to the Hack machine 
+ * language specification. The D and A in the language specification
+ * refer to CPU-resident registers, while M refers to the external
+ * memory location addressed by A, i.e. to Memory[A]. The inM input 
+ * holds the value of this location. If the current instruction needs 
+ * to write a value to M, the value is placed in outM, the address 
+ * of the target location is placed in the addressM output, and the 
+ * writeM control bit is asserted. (When writeM==0, any value may 
+ * appear in outM). The outM and writeM outputs are combinational: 
+ * they are affected instantaneously by the execution of the current 
+ * instruction. The addressM and pc outputs are clocked: although they 
+ * are affected by the execution of the current instruction, they commit 
+ * to their new values only in the next time step. If reset==1 then the 
+ * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather 
+ * than to the address resulting from executing the current instruction. 
+ */
+
+CHIP CPU {
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset==1) or continue executing
+                         // the current program (reset==0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write to M? 
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+    PARTS:
+    Mux16(a=instruction,b=aluout,sel=instruction[15],out=firstout); //Seleciona entre a instrução e a saída da ALU
+    Mux(a=true,b=instruction[5],sel=instruction[15],out=toa); //Seleciona se é dado ou ou instrução
+    Mux(a=false,b=instruction[4],sel=instruction[15],out=tob); //Seleciona se é dado ou ou instrução
+    Mux(a=false,b=instruction[3],sel=instruction[15],out=towrite); //Seleciona se é dado ou ou instrução
+
+    ARegister(in=firstout,load=toa,out=registera); //Registrador Aleciona a entrada para x
+    DRegister(in=aluout,load=tob,out=aluenterx); //Registrador D
+
+    Mux16(a=registera,b=inM,sel=instruction[12],out=aluentery); //Seleciona entre o valor de memória e a própria instrução
+
+    ALU(x=aluenterx,y=aluentery,zx=instruction[11],nx=instruction[10],zy=instruction[9],ny=instruction[8],f=instruction[7],
+       no=instruction[6],out=aluout,zr=zrout,ng=ngout); //Executa a ALU
+
+    Not(in=ngout,out=notngout); //Nega a saída, ou seja, se o valor for positivo
+    Not(in=zrout,out=notzrout); //Nega a saída, ou seja, se o valor for diferente de zero
+
+    And(a=notngout,b=notzrout,out=lastpin); //Saída da ALU maior que zero
+    And(a=lastpin,b=instruction[0],out=pino3); //Verifica se a condição do pino 3 está ativo, onde tem de ser maior que zero
+
+    And(a=zrout,b=instruction[1],out=pino2); //Verifica se a condição do pino 2 está ativo, onde tem de ser igual a zero
+
+    And(a=ngout,b=notzrout,out=firstpin); //Saída da ALU menor que zero
+    And(a=firstpin,b=instruction[2],out=pino1); //Verifica se a condição do pino 1 está ativo, onde tem de ser menor que zero
+
+    Or(a=pino3,b=pino2,out=halfpin);
+    Or(a=halfpin,b=pino1,out=pinodestino); //Combina a permissão dos pinos
+
+    Mux(a=false,b=pinodestino,sel=instruction[15],out=destino); //Caso seja dado, não tem pino de destino
+
+    Not(in=destino,out=incremento); //Incremento não ocorre se houver salto
+
+    PC(in=registera,load=destino,inc=incremento,reset=reset,out[0..14]=pc); //Executa o PC
+
+    Value16(in=aluout,out=outM); //Faz a saída oficial da memória
+    Value16(in=registera,out[0..14]=addressM); //Faz a saída oficial de acesso a memória
+    Value(in=towrite,out=writeM); //Ajusta a saída de WriteM
+
+
+    //Pinos de destino completo
+    //opcode completo - acho
+
+
+}

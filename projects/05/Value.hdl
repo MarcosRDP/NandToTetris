@@ -1,0 +1,18 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/And.hdl
+
+/**
+ * Value gate: 
+ * out = in
+ */
+
+CHIP Value {
+    IN in;
+    OUT out;
+
+    PARTS:
+    Not(in=in,out=loki); //Inverte a entrada
+    Not(in=loki,out=out); //Inverte a saída - Serve para poder trabalhar com resultados de saída no meio do projeto também.
+}
