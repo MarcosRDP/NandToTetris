@@ -1,0 +1,485 @@
+// Created by Marcos, Christian and Antônio, Mine Technologies.
+// File name: Mine/Main.jack
+
+/**
+ * The main class of the Mine Game.
+ */
+class Main {
+
+    /** Initializes a Pong game and starts running it. */
+    function void main() {
+	var int count;
+	var int i;
+	var int j;
+	var int seed;
+	var int result;
+	var bool enter;
+	var char key;
+	var Campo game;
+	var int mov;
+
+	var Array linha0;
+	var Array linha1;
+	var Array linha2;
+	var Array linha3;
+	var Array linha4;
+	var Array linha5;
+	var Array linha6;
+	var Array linha7;
+ 
+	let mov = 0;
+	let seed = 0;
+	let enter = true;
+
+	do Output.moveCursor(10, 25);
+	do Output.printString("Minesweeper");
+	do Output.moveCursor(11, 24);
+	do Output.printString("Press Enter to continue!");
+	while(enter)
+	{
+		let key = Keyboard.keyPressed();
+		let seed = seed + 1;
+		while(key = 128)
+		{
+			let enter = false;
+			let key = Keyboard.keyPressed();
+		}
+		
+
+		if(seed = 32550)
+		{
+			let seed = 0;
+		}
+	}
+
+	do Screen.clearScreen();
+	do Output.moveCursor(0, 0);
+
+	let game = Campo.new(seed);
+	let i = 0;
+	let j = 0;
+	
+	while(i<8)
+	{
+		while(j<10)
+		{
+			do Main.drawNotSelectedHiden((512*i) + (j));
+			let j = j + 1;
+		}
+		do Output.println();
+		let j = 0;
+		let i = i + 1;
+	}
+	do Main.drawSelectedHiden(0);
+
+	let enter = true; //Passa o valor de enter para true
+
+	do Output.moveCursor(0, 20);
+	do Output.printString("Move using the arrows");
+	do Output.moveCursor(1, 20);
+	do Output.printString("Enter -> Activate tile");
+	do Output.moveCursor(2, 20);
+	do Output.printString("Backspace -> Put flag in tile");
+
+	do Output.moveCursor(9, 20);
+	do Output.printString("Moves: ");
+	do Output.printInt(mov);
+	do Output.moveCursor(10, 20);
+	do Output.printString("Flags: ");
+	do Output.printInt(game.getFlag());
+
+	//Está comentado, pois como o alvo não é visivel ficamos impossibilitados de testar
+	//loop infinito até winCondition ser atendida
+	while(enter){
+		let key = Keyboard.keyPressed(); //lê uma tecla
+
+		if(~(key = 0)){ //Se qualquer tecla for pressionada
+			do game.move(key); //Executa o movimento
+			if(key = 131){
+				let mov = mov + 1;
+			}
+			if(key = 130){
+				let mov = mov + 1;
+			}
+			if(key = 132){
+				let mov = mov + 1;
+			}
+			if(key = 133){
+				let mov = mov + 1;
+			}
+
+			do Screen.clearScreen(); //Apaga tudo na tela
+
+			let i = 0;
+			let j = 0;
+	
+			while(i<8)
+			{
+				while(j<10)
+				{
+					let result = game.GetPosicao(i,j);
+					if(result < 5){
+						do Main.drawNotSelectedHiden((512*i) + (j));
+					}
+					if(result = 5){
+						do Main.drawNotSelectedBlank((512*i) + (j));
+					}
+					if(result = 6){
+						do Main.drawNotSelectedOne((512*i) + (j));
+					}
+					if(result = 7){
+						do Main.drawNotSelectedTwo((512*i) + (j));
+					}
+					if(result = 8){
+						do Main.drawNotSelectedThree((512*i) + (j));
+					}
+					if(result > 9){
+						do Main.drawNotSelectedFlag((512*i) + (j));
+					}
+					
+					let j = j + 1;
+				}
+				let j = 0;
+				let i = i + 1;
+			}
+			let i = game.posVert();
+			let j = game.posHor();
+			let result = game.GetPosicao(i,j);
+			if(result < 5){
+				do Main.drawSelectedHiden((512*i) + (j));
+			}
+			if(result = 5){
+				do Main.drawSelectedBlank((512*i) + (j));
+			}
+			if(result = 6){
+				do Main.drawSelectedOne((512*i) + (j));
+			}
+			if(result = 7){
+				do Main.drawSelectedTwo((512*i) + (j));
+			}
+			if(result = 8){
+				do Main.drawSelectedThree((512*i) + (j));
+			}
+			if(result = 9){
+				do Main.drawSelectedBomb((512*i) + (j));
+
+				let enter = false;
+				do Output.moveCursor(15, 30);
+				do Output.printString("Kaboom!!!! Game Over!");
+			}
+			if(result > 9){
+				do Main.drawSelectedFlag((512*i) + (j));
+			}
+
+			do Output.moveCursor(0, 20);
+			do Output.printString("Move using the arrows");
+			do Output.moveCursor(1, 20);
+			do Output.printString("Enter -> Activate tile");
+			do Output.moveCursor(2, 20);
+			do Output.printString("Backspace -> Put flag in tile");
+
+			do Output.moveCursor(9, 20);
+			do Output.printString("Moves: ");
+			do Output.printInt(mov);
+			do Output.moveCursor(10, 20);
+			do Output.printString("Flags: ");
+			do Output.printInt(game.getFlag());
+
+			if(enter){
+				while(~(key = 0)){ //Mantem no loop enquanto usuário não largar a tecla
+					let key = Keyboard.keyPressed(); //lê uma tecla
+				}
+			}
+		}
+
+		if(enter){
+			let enter = game.winCondition(); //Checa condição de vitória ou derrota
+
+			if(~(enter)){
+				do Output.moveCursor(15, 30);
+				do Output.printString("congratulations!!!! You win!");
+			}
+		}
+	}
+
+        return;
+    }
+
+	function void drawNotSelectedHiden(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32, 0);
+		do Memory.poke(memAddress+64, 16380);
+		do Memory.poke(memAddress+96, 16380);
+		do Memory.poke(memAddress+128, 16380);
+		do Memory.poke(memAddress+160, 16380);
+		do Memory.poke(memAddress+192, 16380);
+		do Memory.poke(memAddress+224, 16380);
+		do Memory.poke(memAddress+256, 16380);
+		do Memory.poke(memAddress+288, 16380);
+		do Memory.poke(memAddress+320, 16380);
+		do Memory.poke(memAddress+352, 16380);
+		do Memory.poke(memAddress+384, 16380);
+		do Memory.poke(memAddress+416, 16380);
+		do Memory.poke(memAddress+448, 0);
+		do Memory.poke(memAddress+480, 0);
+		return;
+	}
+	function void drawNotSelectedBlank(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32, 0);
+		do Memory.poke(memAddress+64, 16380);
+		do Memory.poke(memAddress+96, 8196);
+		do Memory.poke(memAddress+128, 8196);
+		do Memory.poke(memAddress+160, 8196);
+		do Memory.poke(memAddress+192, 8196);
+		do Memory.poke(memAddress+224, 8196);
+		do Memory.poke(memAddress+256, 8196);
+		do Memory.poke(memAddress+288, 8196);
+		do Memory.poke(memAddress+320, 8196);
+		do Memory.poke(memAddress+352, 8196);
+		do Memory.poke(memAddress+384, 8196);
+		do Memory.poke(memAddress+416, 16380);
+		do Memory.poke(memAddress+448, 0);
+		do Memory.poke(memAddress+480, 0);
+		return;
+	}
+	function void drawNotSelectedOne(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32, 0);
+		do Memory.poke(memAddress+64, 16380);
+		do Memory.poke(memAddress+96, 8452);
+		do Memory.poke(memAddress+128, 8580);
+		do Memory.poke(memAddress+160, 8516);
+		do Memory.poke(memAddress+192, 8484);
+		do Memory.poke(memAddress+224, 8452);
+		do Memory.poke(memAddress+256, 8452);
+		do Memory.poke(memAddress+288, 8452);
+		do Memory.poke(memAddress+320, 8452);
+		do Memory.poke(memAddress+352, 8452);
+		do Memory.poke(memAddress+384, 10212);
+		do Memory.poke(memAddress+416, 16380);
+		do Memory.poke(memAddress+448, 0);
+		do Memory.poke(memAddress+480, 0);
+		return;
+	}
+
+	function void drawNotSelectedTwo(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32, 0);
+		do Memory.poke(memAddress+64, 16380);
+		do Memory.poke(memAddress+96, 9092);
+		do Memory.poke(memAddress+128, 9284);
+		do Memory.poke(memAddress+160, 9252);
+		do Memory.poke(memAddress+192, 8708);
+		do Memory.poke(memAddress+224, 8452);
+		do Memory.poke(memAddress+256, 8324);
+		do Memory.poke(memAddress+288, 8260);
+		do Memory.poke(memAddress+320, 8228);
+		do Memory.poke(memAddress+352, 8212);
+		do Memory.poke(memAddress+384, 10228);
+		do Memory.poke(memAddress+416, 16380);
+		do Memory.poke(memAddress+448, 0);
+		do Memory.poke(memAddress+480, 0);
+		return;
+	}
+
+	function void drawNotSelectedThree(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32, 0);
+		do Memory.poke(memAddress+64, 16380);
+		do Memory.poke(memAddress+96, 8196);
+		do Memory.poke(memAddress+128, 10180);
+		do Memory.poke(memAddress+160, 9220);
+		do Memory.poke(memAddress+192, 9220);
+		do Memory.poke(memAddress+224, 9220);
+		do Memory.poke(memAddress+256, 10180);
+		do Memory.poke(memAddress+288, 9220);
+		do Memory.poke(memAddress+320, 9220);
+		do Memory.poke(memAddress+352, 9220);
+		do Memory.poke(memAddress+384, 9188);
+		do Memory.poke(memAddress+416, 16380);
+		do Memory.poke(memAddress+448, 0);
+		do Memory.poke(memAddress+480, 0);
+		return;
+	}
+	function void drawNotSelectedFlag(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32, 0);
+		do Memory.poke(memAddress+64, 16380);
+		do Memory.poke(memAddress+96, 8196);
+		do Memory.poke(memAddress+128, 12036);
+		do Memory.poke(memAddress+160, 12036);
+		do Memory.poke(memAddress+192, 8452);
+		do Memory.poke(memAddress+224, 8452);
+		do Memory.poke(memAddress+256, 8452);
+		do Memory.poke(memAddress+288, 12260);
+		do Memory.poke(memAddress+320, 10532);
+		do Memory.poke(memAddress+352, 12260);
+		do Memory.poke(memAddress+384, 8196);
+		do Memory.poke(memAddress+416, 16380);
+		do Memory.poke(memAddress+448, 0);
+		do Memory.poke(memAddress+480, 0);
+		return;
+	}
+
+
+	function void drawSelectedHiden(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, -1);
+		do Memory.poke(memAddress+32, -32767);
+		do Memory.poke(memAddress+64, -16387);
+		do Memory.poke(memAddress+96, -16387);
+		do Memory.poke(memAddress+128, -16387);
+		do Memory.poke(memAddress+160, -16387);
+		do Memory.poke(memAddress+192, -16387);
+		do Memory.poke(memAddress+224, -16387);
+		do Memory.poke(memAddress+256, -16387);
+		do Memory.poke(memAddress+288, -16387);
+		do Memory.poke(memAddress+320, -16387);
+		do Memory.poke(memAddress+352, -16387);
+		do Memory.poke(memAddress+384, -16387);
+		do Memory.poke(memAddress+416, -16387);
+		do Memory.poke(memAddress+448, -32767);
+		do Memory.poke(memAddress+480, -1);
+		return;
+	}
+	function void drawSelectedBlank(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, -1);
+		do Memory.poke(memAddress+32, -32767);
+		do Memory.poke(memAddress+64, -16387);
+		do Memory.poke(memAddress+96, -24571);
+		do Memory.poke(memAddress+128, -24571);
+		do Memory.poke(memAddress+160, -24571);
+		do Memory.poke(memAddress+192, -24571);
+		do Memory.poke(memAddress+224, -24571);
+		do Memory.poke(memAddress+256, -24571);
+		do Memory.poke(memAddress+288, -24571);
+		do Memory.poke(memAddress+320, -24571);
+		do Memory.poke(memAddress+352, -24571);
+		do Memory.poke(memAddress+384, -24571);
+		do Memory.poke(memAddress+416, -16387);
+		do Memory.poke(memAddress+448, -32767);
+		do Memory.poke(memAddress+480, -1);
+		return;
+	}
+	function void drawSelectedOne(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, -1);
+		do Memory.poke(memAddress+32, -32767);
+		do Memory.poke(memAddress+64, -16387);
+		do Memory.poke(memAddress+96, -24315);
+		do Memory.poke(memAddress+128, -24187);
+		do Memory.poke(memAddress+160, -24251);
+		do Memory.poke(memAddress+192, -24283);
+		do Memory.poke(memAddress+224, -24315);
+		do Memory.poke(memAddress+256, -24315);
+		do Memory.poke(memAddress+288, -24315);
+		do Memory.poke(memAddress+320, -24315);
+		do Memory.poke(memAddress+352, -24315);
+		do Memory.poke(memAddress+384, -22555);
+		do Memory.poke(memAddress+416, -16387);
+		do Memory.poke(memAddress+448, -32767);
+		do Memory.poke(memAddress+480, -1);
+		return;
+	}
+	function void drawSelectedTwo(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, -1);
+		do Memory.poke(memAddress+32, -32767);
+		do Memory.poke(memAddress+64, -16387);
+		do Memory.poke(memAddress+96, -24187);
+		do Memory.poke(memAddress+128, -23995);
+		do Memory.poke(memAddress+160, -23515);
+		do Memory.poke(memAddress+192, -23547);
+		do Memory.poke(memAddress+224, -24059);
+		do Memory.poke(memAddress+256, -24315);
+		do Memory.poke(memAddress+288, -24443);
+		do Memory.poke(memAddress+320, -24507);
+		do Memory.poke(memAddress+352, -24539);
+		do Memory.poke(memAddress+384, -22555);
+		do Memory.poke(memAddress+416, -16387);
+		do Memory.poke(memAddress+448, -32767);
+		do Memory.poke(memAddress+480, -1);
+		return;
+	}
+	function void drawSelectedThree(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, -1);
+		do Memory.poke(memAddress+32, -32767);
+		do Memory.poke(memAddress+64, -16387);
+		do Memory.poke(memAddress+96, -24571);
+		do Memory.poke(memAddress+128, -22555);
+		do Memory.poke(memAddress+160, -23515);
+		do Memory.poke(memAddress+192, -23547);
+		do Memory.poke(memAddress+224, -23547);
+		do Memory.poke(memAddress+256, -22651);
+		do Memory.poke(memAddress+288, -23547);
+		do Memory.poke(memAddress+320, -23547);
+		do Memory.poke(memAddress+352, -23515);
+		do Memory.poke(memAddress+384, -22555);
+		do Memory.poke(memAddress+416, -16387);
+		do Memory.poke(memAddress+448, -32767);
+		do Memory.poke(memAddress+480, -1);
+		return;
+	}
+	function void drawSelectedBomb(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, -1);
+		do Memory.poke(memAddress+32, -32767);
+		do Memory.poke(memAddress+64, -16387);
+		do Memory.poke(memAddress+96, -20467);
+		do Memory.poke(memAddress+128, -22507);
+		do Memory.poke(memAddress+160, -23515);
+		do Memory.poke(memAddress+192, -23611);
+		do Memory.poke(memAddress+224, -23611);
+		do Memory.poke(memAddress+256, -23611);
+		do Memory.poke(memAddress+288, -23611);
+		do Memory.poke(memAddress+320, -23515);
+		do Memory.poke(memAddress+352, -22507);
+		do Memory.poke(memAddress+384, -20467);
+		do Memory.poke(memAddress+416, -16387);
+		do Memory.poke(memAddress+448, -32767);
+		do Memory.poke(memAddress+480, -1);
+		return;
+	}
+	function void drawSelectedFlag(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, -1);
+		do Memory.poke(memAddress+32, -32767);
+		do Memory.poke(memAddress+64, -16387);
+		do Memory.poke(memAddress+96, -24571);
+		do Memory.poke(memAddress+128, -20731);
+		do Memory.poke(memAddress+160, -20731);
+		do Memory.poke(memAddress+192, -24315);
+		do Memory.poke(memAddress+224, -24315);
+		do Memory.poke(memAddress+256, -24315);
+		do Memory.poke(memAddress+288, -20507);
+		do Memory.poke(memAddress+320, -22235);
+		do Memory.poke(memAddress+352, -20507);
+		do Memory.poke(memAddress+384, -24571);
+		do Memory.poke(memAddress+416, -16387);
+		do Memory.poke(memAddress+448, -32767);
+		do Memory.poke(memAddress+480, -1);
+		return;
+	}
+}

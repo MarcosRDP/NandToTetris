@@ -1,0 +1,23 @@
+class Start {
+    function int startgame() {
+	//var int count = 0;
+
+	do Output.moveCursor(10, 25);
+	do Output.printString("Mine Game");
+	do Output.moveCursor(11, 24);
+	do Output.printString("Press Enter to continue!");
+	
+	//while(true){
+	//	if(Keyboard.keyPressed()){
+	//		return count;
+	//	}
+
+	//	count = count + 1;
+
+	//	if(count > 10000){
+	//		count = 0;
+	//	}
+	//}
+	return 1;
+    }
+}

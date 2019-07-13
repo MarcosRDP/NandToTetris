@@ -1,0 +1,59 @@
+class Alvo {
+	field int vertical; //0 a 7
+	field int horizontal; //0 a 9
+
+	constructor Alvo new(){		//Construtor de campo que gera bombas aleatorias e inicia todas posições do campo
+		let vertical = 0;
+		let horizontal = 0;
+
+		return this;
+	}
+
+	method void direita(){	//Metodo que move o alvo para a direita
+		let horizontal = horizontal + 1;
+
+		if(horizontal = 10){
+			let horizontal = 0;
+		}
+
+		return;
+	}
+
+	method void esquerda(){	//Metodo que move o alvo para a esquerda
+		if(horizontal = 0){
+			let horizontal = 10;
+		}
+
+		let horizontal = horizontal - 1;
+
+		return;
+	}
+
+	method void cima(){	//Metodo que move o alvo para cima
+		if(vertical = 0){
+			let vertical = 8;
+		}
+
+		let vertical = vertical - 1;
+
+		return;
+	}
+
+	method void baixo(){	//Metodo que move o alvo para baixo
+		let vertical = vertical + 1;
+
+		if(vertical = 8){
+			let vertical = 0;
+		}
+
+		return;
+	}
+
+	method int getVertical(){
+		return vertical;
+	}
+
+	method int getHorizontal(){
+		return horizontal;
+	}
+}

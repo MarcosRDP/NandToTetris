@@ -1,0 +1,5229 @@
+function Campo.new 5
+push constant 11
+call Memory.alloc 1
+pop pointer 0
+call Alvo.new 0
+pop this 8
+push constant 10
+pop this 9
+push constant 70
+pop this 10
+push constant 10
+call Array.new 1
+pop this 0
+push constant 10
+call Array.new 1
+pop this 1
+push constant 10
+call Array.new 1
+pop this 2
+push constant 10
+call Array.new 1
+pop this 3
+push constant 10
+call Array.new 1
+pop this 4
+push constant 10
+call Array.new 1
+pop this 5
+push constant 10
+call Array.new 1
+pop this 6
+push constant 10
+call Array.new 1
+pop this 7
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+push constant 10
+pop local 4
+push constant 79
+pop local 3
+push argument 0
+call LCGRandom.setSeed 1
+pop temp 0
+label WHILE_EXP0
+push local 0
+push constant 10
+lt
+not
+if-goto WHILE_END0
+label WHILE_EXP1
+push local 1
+push constant 8
+lt
+not
+if-goto WHILE_END1
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 1
+push this 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE0
+push local 0
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 1
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE1
+push local 0
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 1
+push this 2
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE2
+push local 0
+push constant 3
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push local 1
+push this 3
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE3
+push local 0
+push constant 4
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push local 1
+push this 4
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE4
+push local 0
+push constant 5
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push local 1
+push this 5
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE5
+push local 0
+push constant 6
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push local 1
+push this 6
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE6
+push local 0
+push constant 7
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push local 1
+push this 7
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE7
+push local 1
+push constant 1
+add
+pop local 1
+push local 3
+push constant 1
+sub
+pop local 3
+goto WHILE_EXP1
+label WHILE_END1
+push constant 0
+pop local 1
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+pop local 4
+push argument 0
+call LCGRandom.setSeed 1
+pop temp 0
+label WHILE_EXP2
+push local 4
+push constant 10
+lt
+not
+if-goto WHILE_END2
+push constant 0
+push constant 7
+call LCGRandom.randRange 2
+pop local 0
+push constant 0
+push constant 9
+call LCGRandom.randRange 2
+pop local 1
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push local 1
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push local 4
+push constant 1
+sub
+pop local 4
+goto IF_END9
+label IF_FALSE9
+push local 1
+push this 0
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push local 1
+push constant 1
+sub
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push local 1
+push constant 1
+sub
+push this 0
+add
+push local 1
+push constant 1
+sub
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE11
+label IF_FALSE10
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push local 1
+push constant 1
+add
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+push local 1
+push constant 1
+add
+push this 0
+add
+push local 1
+push constant 1
+add
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE13
+label IF_FALSE12
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push local 1
+push constant 1
+sub
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push local 1
+push constant 1
+sub
+push this 1
+add
+push local 1
+push constant 1
+sub
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE15
+label IF_FALSE14
+push local 1
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE16
+goto IF_FALSE16
+label IF_TRUE16
+push local 1
+push this 1
+add
+push local 1
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE16
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE17
+goto IF_FALSE17
+label IF_TRUE17
+push local 1
+push constant 1
+add
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE18
+goto IF_FALSE18
+label IF_TRUE18
+push local 1
+push constant 1
+add
+push this 1
+add
+push local 1
+push constant 1
+add
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE18
+label IF_FALSE17
+label IF_END9
+label IF_FALSE8
+push local 0
+push constant 1
+eq
+if-goto IF_TRUE19
+goto IF_FALSE19
+label IF_TRUE19
+push local 1
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE20
+goto IF_FALSE20
+label IF_TRUE20
+push local 4
+push constant 1
+sub
+pop local 4
+goto IF_END20
+label IF_FALSE20
+push local 1
+push this 1
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE21
+goto IF_FALSE21
+label IF_TRUE21
+push local 1
+push constant 1
+sub
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE22
+goto IF_FALSE22
+label IF_TRUE22
+push local 1
+push constant 1
+sub
+push this 0
+add
+push local 1
+push constant 1
+sub
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE22
+label IF_FALSE21
+push local 1
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE23
+goto IF_FALSE23
+label IF_TRUE23
+push local 1
+push this 0
+add
+push local 1
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE23
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE24
+goto IF_FALSE24
+label IF_TRUE24
+push local 1
+push constant 1
+add
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE25
+goto IF_FALSE25
+label IF_TRUE25
+push local 1
+push constant 1
+add
+push this 0
+add
+push local 1
+push constant 1
+add
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE25
+label IF_FALSE24
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE26
+goto IF_FALSE26
+label IF_TRUE26
+push local 1
+push constant 1
+sub
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE27
+goto IF_FALSE27
+label IF_TRUE27
+push local 1
+push constant 1
+sub
+push this 1
+add
+push local 1
+push constant 1
+sub
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE27
+label IF_FALSE26
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE28
+goto IF_FALSE28
+label IF_TRUE28
+push local 1
+push constant 1
+add
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE29
+goto IF_FALSE29
+label IF_TRUE29
+push local 1
+push constant 1
+add
+push this 1
+add
+push local 1
+push constant 1
+add
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE29
+label IF_FALSE28
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE30
+goto IF_FALSE30
+label IF_TRUE30
+push local 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE31
+goto IF_FALSE31
+label IF_TRUE31
+push local 1
+push constant 1
+sub
+push this 2
+add
+push local 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE31
+label IF_FALSE30
+push local 1
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE32
+goto IF_FALSE32
+label IF_TRUE32
+push local 1
+push this 2
+add
+push local 1
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE32
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE33
+goto IF_FALSE33
+label IF_TRUE33
+push local 1
+push constant 1
+add
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE34
+goto IF_FALSE34
+label IF_TRUE34
+push local 1
+push constant 1
+add
+push this 2
+add
+push local 1
+push constant 1
+add
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE34
+label IF_FALSE33
+label IF_END20
+label IF_FALSE19
+push local 0
+push constant 2
+eq
+if-goto IF_TRUE35
+goto IF_FALSE35
+label IF_TRUE35
+push local 1
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE36
+goto IF_FALSE36
+label IF_TRUE36
+push local 4
+push constant 1
+sub
+pop local 4
+goto IF_END36
+label IF_FALSE36
+push local 1
+push this 2
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE37
+goto IF_FALSE37
+label IF_TRUE37
+push local 1
+push constant 1
+sub
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE38
+goto IF_FALSE38
+label IF_TRUE38
+push local 1
+push constant 1
+sub
+push this 1
+add
+push local 1
+push constant 1
+sub
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE38
+label IF_FALSE37
+push local 1
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE39
+goto IF_FALSE39
+label IF_TRUE39
+push local 1
+push this 1
+add
+push local 1
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE39
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE40
+goto IF_FALSE40
+label IF_TRUE40
+push local 1
+push constant 1
+add
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE41
+goto IF_FALSE41
+label IF_TRUE41
+push local 1
+push constant 1
+add
+push this 1
+add
+push local 1
+push constant 1
+add
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE41
+label IF_FALSE40
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE42
+goto IF_FALSE42
+label IF_TRUE42
+push local 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE43
+goto IF_FALSE43
+label IF_TRUE43
+push local 1
+push constant 1
+sub
+push this 2
+add
+push local 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE43
+label IF_FALSE42
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE44
+goto IF_FALSE44
+label IF_TRUE44
+push local 1
+push constant 1
+add
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE45
+goto IF_FALSE45
+label IF_TRUE45
+push local 1
+push constant 1
+add
+push this 2
+add
+push local 1
+push constant 1
+add
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE45
+label IF_FALSE44
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE46
+goto IF_FALSE46
+label IF_TRUE46
+push local 1
+push constant 1
+sub
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE47
+goto IF_FALSE47
+label IF_TRUE47
+push local 1
+push constant 1
+sub
+push this 3
+add
+push local 1
+push constant 1
+sub
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE47
+label IF_FALSE46
+push local 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE48
+goto IF_FALSE48
+label IF_TRUE48
+push local 1
+push this 3
+add
+push local 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE48
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE49
+goto IF_FALSE49
+label IF_TRUE49
+push local 1
+push constant 1
+add
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE50
+goto IF_FALSE50
+label IF_TRUE50
+push local 1
+push constant 1
+add
+push this 3
+add
+push local 1
+push constant 1
+add
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE50
+label IF_FALSE49
+label IF_END36
+label IF_FALSE35
+push local 0
+push constant 3
+eq
+if-goto IF_TRUE51
+goto IF_FALSE51
+label IF_TRUE51
+push local 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE52
+goto IF_FALSE52
+label IF_TRUE52
+push local 4
+push constant 1
+sub
+pop local 4
+goto IF_END52
+label IF_FALSE52
+push local 1
+push this 3
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE53
+goto IF_FALSE53
+label IF_TRUE53
+push local 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE54
+goto IF_FALSE54
+label IF_TRUE54
+push local 1
+push constant 1
+sub
+push this 2
+add
+push local 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE54
+label IF_FALSE53
+push local 1
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE55
+goto IF_FALSE55
+label IF_TRUE55
+push local 1
+push this 2
+add
+push local 1
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE55
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE56
+goto IF_FALSE56
+label IF_TRUE56
+push local 1
+push constant 1
+add
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE57
+goto IF_FALSE57
+label IF_TRUE57
+push local 1
+push constant 1
+add
+push this 2
+add
+push local 1
+push constant 1
+add
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE57
+label IF_FALSE56
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE58
+goto IF_FALSE58
+label IF_TRUE58
+push local 1
+push constant 1
+sub
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE59
+goto IF_FALSE59
+label IF_TRUE59
+push local 1
+push constant 1
+sub
+push this 3
+add
+push local 1
+push constant 1
+sub
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE59
+label IF_FALSE58
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE60
+goto IF_FALSE60
+label IF_TRUE60
+push local 1
+push constant 1
+add
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE61
+goto IF_FALSE61
+label IF_TRUE61
+push local 1
+push constant 1
+add
+push this 3
+add
+push local 1
+push constant 1
+add
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE61
+label IF_FALSE60
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE62
+goto IF_FALSE62
+label IF_TRUE62
+push local 1
+push constant 1
+sub
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE63
+goto IF_FALSE63
+label IF_TRUE63
+push local 1
+push constant 1
+sub
+push this 4
+add
+push local 1
+push constant 1
+sub
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE63
+label IF_FALSE62
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE64
+goto IF_FALSE64
+label IF_TRUE64
+push local 1
+push this 4
+add
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE64
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE65
+goto IF_FALSE65
+label IF_TRUE65
+push local 1
+push constant 1
+add
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE66
+goto IF_FALSE66
+label IF_TRUE66
+push local 1
+push constant 1
+add
+push this 4
+add
+push local 1
+push constant 1
+add
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE66
+label IF_FALSE65
+label IF_END52
+label IF_FALSE51
+push local 0
+push constant 4
+eq
+if-goto IF_TRUE67
+goto IF_FALSE67
+label IF_TRUE67
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE68
+goto IF_FALSE68
+label IF_TRUE68
+push local 4
+push constant 1
+sub
+pop local 4
+goto IF_END68
+label IF_FALSE68
+push local 1
+push this 4
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE69
+goto IF_FALSE69
+label IF_TRUE69
+push local 1
+push constant 1
+sub
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE70
+goto IF_FALSE70
+label IF_TRUE70
+push local 1
+push constant 1
+sub
+push this 3
+add
+push local 1
+push constant 1
+sub
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE70
+label IF_FALSE69
+push local 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE71
+goto IF_FALSE71
+label IF_TRUE71
+push local 1
+push this 3
+add
+push local 1
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE71
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE72
+goto IF_FALSE72
+label IF_TRUE72
+push local 1
+push constant 1
+add
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE73
+goto IF_FALSE73
+label IF_TRUE73
+push local 1
+push constant 1
+add
+push this 3
+add
+push local 1
+push constant 1
+add
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE73
+label IF_FALSE72
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE74
+goto IF_FALSE74
+label IF_TRUE74
+push local 1
+push constant 1
+sub
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE75
+goto IF_FALSE75
+label IF_TRUE75
+push local 1
+push constant 1
+sub
+push this 4
+add
+push local 1
+push constant 1
+sub
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE75
+label IF_FALSE74
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE76
+goto IF_FALSE76
+label IF_TRUE76
+push local 1
+push constant 1
+add
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE77
+goto IF_FALSE77
+label IF_TRUE77
+push local 1
+push constant 1
+add
+push this 4
+add
+push local 1
+push constant 1
+add
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE77
+label IF_FALSE76
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE78
+goto IF_FALSE78
+label IF_TRUE78
+push local 1
+push constant 1
+sub
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE79
+goto IF_FALSE79
+label IF_TRUE79
+push local 1
+push constant 1
+sub
+push this 5
+add
+push local 1
+push constant 1
+sub
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE79
+label IF_FALSE78
+push local 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE80
+goto IF_FALSE80
+label IF_TRUE80
+push local 1
+push this 5
+add
+push local 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE80
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE81
+goto IF_FALSE81
+label IF_TRUE81
+push local 1
+push constant 1
+add
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE82
+goto IF_FALSE82
+label IF_TRUE82
+push local 1
+push constant 1
+add
+push this 5
+add
+push local 1
+push constant 1
+add
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE82
+label IF_FALSE81
+label IF_END68
+label IF_FALSE67
+push local 0
+push constant 5
+eq
+if-goto IF_TRUE83
+goto IF_FALSE83
+label IF_TRUE83
+push local 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE84
+goto IF_FALSE84
+label IF_TRUE84
+push local 4
+push constant 1
+sub
+pop local 4
+goto IF_END84
+label IF_FALSE84
+push local 1
+push this 5
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE85
+goto IF_FALSE85
+label IF_TRUE85
+push local 1
+push constant 1
+sub
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE86
+goto IF_FALSE86
+label IF_TRUE86
+push local 1
+push constant 1
+sub
+push this 4
+add
+push local 1
+push constant 1
+sub
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE86
+label IF_FALSE85
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE87
+goto IF_FALSE87
+label IF_TRUE87
+push local 1
+push this 4
+add
+push local 1
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE87
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE88
+goto IF_FALSE88
+label IF_TRUE88
+push local 1
+push constant 1
+add
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE89
+goto IF_FALSE89
+label IF_TRUE89
+push local 1
+push constant 1
+add
+push this 4
+add
+push local 1
+push constant 1
+add
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE89
+label IF_FALSE88
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE90
+goto IF_FALSE90
+label IF_TRUE90
+push local 1
+push constant 1
+sub
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE91
+goto IF_FALSE91
+label IF_TRUE91
+push local 1
+push constant 1
+sub
+push this 5
+add
+push local 1
+push constant 1
+sub
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE91
+label IF_FALSE90
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE92
+goto IF_FALSE92
+label IF_TRUE92
+push local 1
+push constant 1
+add
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE93
+goto IF_FALSE93
+label IF_TRUE93
+push local 1
+push constant 1
+add
+push this 5
+add
+push local 1
+push constant 1
+add
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE93
+label IF_FALSE92
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE94
+goto IF_FALSE94
+label IF_TRUE94
+push local 1
+push constant 1
+sub
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE95
+goto IF_FALSE95
+label IF_TRUE95
+push local 1
+push constant 1
+sub
+push this 6
+add
+push local 1
+push constant 1
+sub
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE95
+label IF_FALSE94
+push local 1
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE96
+goto IF_FALSE96
+label IF_TRUE96
+push local 1
+push this 6
+add
+push local 1
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE96
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE97
+goto IF_FALSE97
+label IF_TRUE97
+push local 1
+push constant 1
+add
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE98
+goto IF_FALSE98
+label IF_TRUE98
+push local 1
+push constant 1
+add
+push this 6
+add
+push local 1
+push constant 1
+add
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE98
+label IF_FALSE97
+label IF_END84
+label IF_FALSE83
+push local 0
+push constant 6
+eq
+if-goto IF_TRUE99
+goto IF_FALSE99
+label IF_TRUE99
+push local 1
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE100
+goto IF_FALSE100
+label IF_TRUE100
+push local 4
+push constant 1
+sub
+pop local 4
+goto IF_END100
+label IF_FALSE100
+push local 1
+push this 6
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE101
+goto IF_FALSE101
+label IF_TRUE101
+push local 1
+push constant 1
+sub
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE102
+goto IF_FALSE102
+label IF_TRUE102
+push local 1
+push constant 1
+sub
+push this 5
+add
+push local 1
+push constant 1
+sub
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE102
+label IF_FALSE101
+push local 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE103
+goto IF_FALSE103
+label IF_TRUE103
+push local 1
+push this 5
+add
+push local 1
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE103
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE104
+goto IF_FALSE104
+label IF_TRUE104
+push local 1
+push constant 1
+add
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE105
+goto IF_FALSE105
+label IF_TRUE105
+push local 1
+push constant 1
+add
+push this 5
+add
+push local 1
+push constant 1
+add
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE105
+label IF_FALSE104
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE106
+goto IF_FALSE106
+label IF_TRUE106
+push local 1
+push constant 1
+sub
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE107
+goto IF_FALSE107
+label IF_TRUE107
+push local 1
+push constant 1
+sub
+push this 6
+add
+push local 1
+push constant 1
+sub
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE107
+label IF_FALSE106
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE108
+goto IF_FALSE108
+label IF_TRUE108
+push local 1
+push constant 1
+add
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE109
+goto IF_FALSE109
+label IF_TRUE109
+push local 1
+push constant 1
+add
+push this 6
+add
+push local 1
+push constant 1
+add
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE109
+label IF_FALSE108
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE110
+goto IF_FALSE110
+label IF_TRUE110
+push local 1
+push constant 1
+sub
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE111
+goto IF_FALSE111
+label IF_TRUE111
+push local 1
+push constant 1
+sub
+push this 7
+add
+push local 1
+push constant 1
+sub
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE111
+label IF_FALSE110
+push local 1
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE112
+goto IF_FALSE112
+label IF_TRUE112
+push local 1
+push this 7
+add
+push local 1
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE112
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE113
+goto IF_FALSE113
+label IF_TRUE113
+push local 1
+push constant 1
+add
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE114
+goto IF_FALSE114
+label IF_TRUE114
+push local 1
+push constant 1
+add
+push this 7
+add
+push local 1
+push constant 1
+add
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE114
+label IF_FALSE113
+label IF_END100
+label IF_FALSE99
+push local 0
+push constant 7
+eq
+if-goto IF_TRUE115
+goto IF_FALSE115
+label IF_TRUE115
+push local 1
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE116
+goto IF_FALSE116
+label IF_TRUE116
+push local 4
+push constant 1
+sub
+pop local 4
+goto IF_END116
+label IF_FALSE116
+push local 1
+push this 7
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE117
+goto IF_FALSE117
+label IF_TRUE117
+push local 1
+push constant 1
+sub
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE118
+goto IF_FALSE118
+label IF_TRUE118
+push local 1
+push constant 1
+sub
+push this 6
+add
+push local 1
+push constant 1
+sub
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE118
+label IF_FALSE117
+push local 1
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE119
+goto IF_FALSE119
+label IF_TRUE119
+push local 1
+push this 6
+add
+push local 1
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE119
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE120
+goto IF_FALSE120
+label IF_TRUE120
+push local 1
+push constant 1
+add
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE121
+goto IF_FALSE121
+label IF_TRUE121
+push local 1
+push constant 1
+add
+push this 6
+add
+push local 1
+push constant 1
+add
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE121
+label IF_FALSE120
+push local 1
+push constant 0
+gt
+if-goto IF_TRUE122
+goto IF_FALSE122
+label IF_TRUE122
+push local 1
+push constant 1
+sub
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE123
+goto IF_FALSE123
+label IF_TRUE123
+push local 1
+push constant 1
+sub
+push this 7
+add
+push local 1
+push constant 1
+sub
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE123
+label IF_FALSE122
+push local 1
+push constant 9
+lt
+if-goto IF_TRUE124
+goto IF_FALSE124
+label IF_TRUE124
+push local 1
+push constant 1
+add
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+not
+if-goto IF_TRUE125
+goto IF_FALSE125
+label IF_TRUE125
+push local 1
+push constant 1
+add
+push this 7
+add
+push local 1
+push constant 1
+add
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE125
+label IF_FALSE124
+label IF_END116
+label IF_FALSE115
+push local 4
+push constant 1
+add
+pop local 4
+goto WHILE_EXP2
+label WHILE_END2
+push pointer 0
+return
+function Campo.recebePosicao 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+label IF_FALSE1
+label IF_FALSE0
+push argument 1
+push constant 1
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+label IF_FALSE3
+label IF_FALSE2
+push argument 1
+push constant 2
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+label IF_FALSE5
+label IF_FALSE4
+push argument 1
+push constant 3
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+label IF_FALSE7
+label IF_FALSE6
+push argument 1
+push constant 4
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+label IF_FALSE9
+label IF_FALSE8
+push argument 1
+push constant 5
+eq
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+label IF_FALSE11
+label IF_FALSE10
+push argument 1
+push constant 6
+eq
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+label IF_FALSE13
+label IF_FALSE12
+push argument 1
+push constant 7
+eq
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+label IF_FALSE15
+label IF_FALSE14
+push pointer 0
+push argument 2
+push argument 1
+call Campo.tornaVisivel 3
+pop temp 0
+push constant 0
+return
+function Campo.tornaVisivel 2
+push argument 0
+pop pointer 0
+push this 8
+call Alvo.getVertical 1
+pop local 0
+push this 8
+call Alvo.getHorizontal 1
+pop local 1
+push argument 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+gt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+label IF_FALSE1
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 1
+push local 0
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push local 1
+push argument 2
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push argument 2
+push this 0
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE4
+label IF_FALSE3
+label IF_FALSE2
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 3
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push argument 2
+push this 0
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE5
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push argument 2
+push this 0
+add
+push constant 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE6
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push argument 2
+push this 0
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE7
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push argument 2
+push this 0
+add
+push constant 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE8
+label IF_FALSE0
+push argument 1
+push constant 1
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+gt
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+label IF_FALSE10
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push argument 1
+push local 0
+eq
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push local 1
+push argument 2
+eq
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+push argument 2
+push this 1
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE13
+label IF_FALSE12
+label IF_FALSE11
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 3
+eq
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push argument 2
+push this 1
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE14
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push argument 2
+push this 1
+add
+push constant 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE15
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto IF_TRUE16
+goto IF_FALSE16
+label IF_TRUE16
+push argument 2
+push this 1
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE16
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto IF_TRUE17
+goto IF_FALSE17
+label IF_TRUE17
+push argument 2
+push this 1
+add
+push constant 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE17
+label IF_FALSE9
+push argument 1
+push constant 2
+eq
+if-goto IF_TRUE18
+goto IF_FALSE18
+label IF_TRUE18
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+gt
+if-goto IF_TRUE19
+goto IF_FALSE19
+label IF_TRUE19
+label IF_FALSE19
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE20
+goto IF_FALSE20
+label IF_TRUE20
+push argument 1
+push local 0
+eq
+if-goto IF_TRUE21
+goto IF_FALSE21
+label IF_TRUE21
+push local 1
+push argument 2
+eq
+if-goto IF_TRUE22
+goto IF_FALSE22
+label IF_TRUE22
+push argument 2
+push this 2
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE22
+label IF_FALSE21
+label IF_FALSE20
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 3
+eq
+if-goto IF_TRUE23
+goto IF_FALSE23
+label IF_TRUE23
+push argument 2
+push this 2
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE23
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto IF_TRUE24
+goto IF_FALSE24
+label IF_TRUE24
+push argument 2
+push this 2
+add
+push constant 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE24
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto IF_TRUE25
+goto IF_FALSE25
+label IF_TRUE25
+push argument 2
+push this 2
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE25
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto IF_TRUE26
+goto IF_FALSE26
+label IF_TRUE26
+push argument 2
+push this 2
+add
+push constant 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE26
+label IF_FALSE18
+push argument 1
+push constant 3
+eq
+if-goto IF_TRUE27
+goto IF_FALSE27
+label IF_TRUE27
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+gt
+if-goto IF_TRUE28
+goto IF_FALSE28
+label IF_TRUE28
+label IF_FALSE28
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE29
+goto IF_FALSE29
+label IF_TRUE29
+push argument 1
+push local 0
+eq
+if-goto IF_TRUE30
+goto IF_FALSE30
+label IF_TRUE30
+push local 1
+push argument 2
+eq
+if-goto IF_TRUE31
+goto IF_FALSE31
+label IF_TRUE31
+push argument 2
+push this 3
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE31
+label IF_FALSE30
+label IF_FALSE29
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 3
+eq
+if-goto IF_TRUE32
+goto IF_FALSE32
+label IF_TRUE32
+push argument 2
+push this 3
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE32
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto IF_TRUE33
+goto IF_FALSE33
+label IF_TRUE33
+push argument 2
+push this 3
+add
+push constant 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE33
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto IF_TRUE34
+goto IF_FALSE34
+label IF_TRUE34
+push argument 2
+push this 3
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE34
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto IF_TRUE35
+goto IF_FALSE35
+label IF_TRUE35
+push argument 2
+push this 3
+add
+push constant 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE35
+label IF_FALSE27
+push argument 1
+push constant 4
+eq
+if-goto IF_TRUE36
+goto IF_FALSE36
+label IF_TRUE36
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+gt
+if-goto IF_TRUE37
+goto IF_FALSE37
+label IF_TRUE37
+label IF_FALSE37
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE38
+goto IF_FALSE38
+label IF_TRUE38
+push argument 1
+push local 0
+eq
+if-goto IF_TRUE39
+goto IF_FALSE39
+label IF_TRUE39
+push local 1
+push argument 2
+eq
+if-goto IF_TRUE40
+goto IF_FALSE40
+label IF_TRUE40
+push argument 2
+push this 4
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE40
+label IF_FALSE39
+label IF_FALSE38
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 3
+eq
+if-goto IF_TRUE41
+goto IF_FALSE41
+label IF_TRUE41
+push argument 2
+push this 4
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE41
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto IF_TRUE42
+goto IF_FALSE42
+label IF_TRUE42
+push argument 2
+push this 4
+add
+push constant 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE42
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto IF_TRUE43
+goto IF_FALSE43
+label IF_TRUE43
+push argument 2
+push this 4
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE43
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto IF_TRUE44
+goto IF_FALSE44
+label IF_TRUE44
+push argument 2
+push this 4
+add
+push constant 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE44
+label IF_FALSE36
+push argument 1
+push constant 5
+eq
+if-goto IF_TRUE45
+goto IF_FALSE45
+label IF_TRUE45
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+gt
+if-goto IF_TRUE46
+goto IF_FALSE46
+label IF_TRUE46
+label IF_FALSE46
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE47
+goto IF_FALSE47
+label IF_TRUE47
+push argument 1
+push local 0
+eq
+if-goto IF_TRUE48
+goto IF_FALSE48
+label IF_TRUE48
+push local 1
+push argument 2
+eq
+if-goto IF_TRUE49
+goto IF_FALSE49
+label IF_TRUE49
+push argument 2
+push this 5
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE49
+label IF_FALSE48
+label IF_FALSE47
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 3
+eq
+if-goto IF_TRUE50
+goto IF_FALSE50
+label IF_TRUE50
+push argument 2
+push this 5
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE50
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto IF_TRUE51
+goto IF_FALSE51
+label IF_TRUE51
+push argument 2
+push this 5
+add
+push constant 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE51
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto IF_TRUE52
+goto IF_FALSE52
+label IF_TRUE52
+push argument 2
+push this 5
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE52
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto IF_TRUE53
+goto IF_FALSE53
+label IF_TRUE53
+push argument 2
+push this 5
+add
+push constant 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE53
+label IF_FALSE45
+push argument 1
+push constant 6
+eq
+if-goto IF_TRUE54
+goto IF_FALSE54
+label IF_TRUE54
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+gt
+if-goto IF_TRUE55
+goto IF_FALSE55
+label IF_TRUE55
+label IF_FALSE55
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE56
+goto IF_FALSE56
+label IF_TRUE56
+push argument 1
+push local 0
+eq
+if-goto IF_TRUE57
+goto IF_FALSE57
+label IF_TRUE57
+push local 1
+push argument 2
+eq
+if-goto IF_TRUE58
+goto IF_FALSE58
+label IF_TRUE58
+push argument 2
+push this 6
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE58
+label IF_FALSE57
+label IF_FALSE56
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE59
+goto IF_FALSE59
+label IF_TRUE59
+push argument 2
+push this 6
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE59
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 3
+eq
+if-goto IF_TRUE60
+goto IF_FALSE60
+label IF_TRUE60
+push argument 2
+push this 6
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE60
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto IF_TRUE61
+goto IF_FALSE61
+label IF_TRUE61
+push argument 2
+push this 6
+add
+push constant 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE61
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto IF_TRUE62
+goto IF_FALSE62
+label IF_TRUE62
+push argument 2
+push this 6
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE62
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto IF_TRUE63
+goto IF_FALSE63
+label IF_TRUE63
+push argument 2
+push this 6
+add
+push constant 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE63
+label IF_FALSE54
+push argument 1
+push constant 7
+eq
+if-goto IF_TRUE64
+goto IF_FALSE64
+label IF_TRUE64
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+gt
+if-goto IF_TRUE65
+goto IF_FALSE65
+label IF_TRUE65
+label IF_FALSE65
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 4
+eq
+if-goto IF_TRUE66
+goto IF_FALSE66
+label IF_TRUE66
+push argument 1
+push local 0
+eq
+if-goto IF_TRUE67
+goto IF_FALSE67
+label IF_TRUE67
+push local 1
+push argument 2
+eq
+if-goto IF_TRUE68
+goto IF_FALSE68
+label IF_TRUE68
+push argument 2
+push this 7
+add
+push constant 9
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE68
+label IF_FALSE67
+label IF_FALSE66
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 3
+eq
+if-goto IF_TRUE69
+goto IF_FALSE69
+label IF_TRUE69
+push argument 2
+push this 7
+add
+push constant 8
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE69
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 2
+eq
+if-goto IF_TRUE70
+goto IF_FALSE70
+label IF_TRUE70
+push argument 2
+push this 7
+add
+push constant 7
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE70
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 1
+eq
+if-goto IF_TRUE71
+goto IF_FALSE71
+label IF_TRUE71
+push argument 2
+push this 7
+add
+push constant 6
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE71
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+if-goto IF_TRUE72
+goto IF_FALSE72
+label IF_TRUE72
+push argument 2
+push this 7
+add
+push constant 5
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Campo.tornaVisivel 3
+pop temp 0
+push pointer 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Campo.tornaVisivel 3
+pop temp 0
+push this 10
+push constant 1
+sub
+pop this 10
+label IF_FALSE72
+label IF_FALSE64
+push constant 0
+return
+function Campo.flag 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 9
+gt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 9
+push constant 1
+add
+pop this 9
+push argument 2
+push this 0
+add
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 10
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END1
+label IF_FALSE1
+push this 9
+push constant 0
+gt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 5
+lt
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 9
+push constant 1
+sub
+pop this 9
+push argument 2
+push this 0
+add
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+push constant 10
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE3
+label IF_FALSE2
+label IF_END1
+label IF_FALSE0
+push argument 1
+push constant 1
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 9
+gt
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 9
+push constant 1
+add
+pop this 9
+push argument 2
+push this 1
+add
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 10
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END5
+label IF_FALSE5
+push this 9
+push constant 0
+gt
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 5
+lt
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push this 9
+push constant 1
+sub
+pop this 9
+push argument 2
+push this 1
+add
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+push constant 10
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE7
+label IF_FALSE6
+label IF_END5
+label IF_FALSE4
+push argument 1
+push constant 2
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 9
+gt
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push this 9
+push constant 1
+add
+pop this 9
+push argument 2
+push this 2
+add
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 10
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END9
+label IF_FALSE9
+push this 9
+push constant 0
+gt
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 5
+lt
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push this 9
+push constant 1
+sub
+pop this 9
+push argument 2
+push this 2
+add
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+push constant 10
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE11
+label IF_FALSE10
+label IF_END9
+label IF_FALSE8
+push argument 1
+push constant 3
+eq
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 9
+gt
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+push this 9
+push constant 1
+add
+pop this 9
+push argument 2
+push this 3
+add
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 10
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END13
+label IF_FALSE13
+push this 9
+push constant 0
+gt
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 5
+lt
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push this 9
+push constant 1
+sub
+pop this 9
+push argument 2
+push this 3
+add
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+push constant 10
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE15
+label IF_FALSE14
+label IF_END13
+label IF_FALSE12
+push argument 1
+push constant 4
+eq
+if-goto IF_TRUE16
+goto IF_FALSE16
+label IF_TRUE16
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 9
+gt
+if-goto IF_TRUE17
+goto IF_FALSE17
+label IF_TRUE17
+push this 9
+push constant 1
+add
+pop this 9
+push argument 2
+push this 4
+add
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 10
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END17
+label IF_FALSE17
+push this 9
+push constant 0
+gt
+if-goto IF_TRUE18
+goto IF_FALSE18
+label IF_TRUE18
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 5
+lt
+if-goto IF_TRUE19
+goto IF_FALSE19
+label IF_TRUE19
+push this 9
+push constant 1
+sub
+pop this 9
+push argument 2
+push this 4
+add
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+push constant 10
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE19
+label IF_FALSE18
+label IF_END17
+label IF_FALSE16
+push argument 1
+push constant 5
+eq
+if-goto IF_TRUE20
+goto IF_FALSE20
+label IF_TRUE20
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 9
+gt
+if-goto IF_TRUE21
+goto IF_FALSE21
+label IF_TRUE21
+push this 9
+push constant 1
+add
+pop this 9
+push argument 2
+push this 5
+add
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 10
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END21
+label IF_FALSE21
+push this 9
+push constant 0
+gt
+if-goto IF_TRUE22
+goto IF_FALSE22
+label IF_TRUE22
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 5
+lt
+if-goto IF_TRUE23
+goto IF_FALSE23
+label IF_TRUE23
+push this 9
+push constant 1
+sub
+pop this 9
+push argument 2
+push this 5
+add
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+push constant 10
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE23
+label IF_FALSE22
+label IF_END21
+label IF_FALSE20
+push argument 1
+push constant 6
+eq
+if-goto IF_TRUE24
+goto IF_FALSE24
+label IF_TRUE24
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 9
+gt
+if-goto IF_TRUE25
+goto IF_FALSE25
+label IF_TRUE25
+push this 9
+push constant 1
+add
+pop this 9
+push argument 2
+push this 6
+add
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 10
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END25
+label IF_FALSE25
+push this 9
+push constant 0
+gt
+if-goto IF_TRUE26
+goto IF_FALSE26
+label IF_TRUE26
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 5
+lt
+if-goto IF_TRUE27
+goto IF_FALSE27
+label IF_TRUE27
+push this 9
+push constant 1
+sub
+pop this 9
+push argument 2
+push this 6
+add
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+push constant 10
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE27
+label IF_FALSE26
+label IF_END25
+label IF_FALSE24
+push argument 1
+push constant 7
+eq
+if-goto IF_TRUE28
+goto IF_FALSE28
+label IF_TRUE28
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 9
+gt
+if-goto IF_TRUE29
+goto IF_FALSE29
+label IF_TRUE29
+push this 9
+push constant 1
+add
+pop this 9
+push argument 2
+push this 7
+add
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 10
+sub
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END29
+label IF_FALSE29
+push this 9
+push constant 0
+gt
+if-goto IF_TRUE30
+goto IF_FALSE30
+label IF_TRUE30
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 5
+lt
+if-goto IF_TRUE31
+goto IF_FALSE31
+label IF_TRUE31
+push this 9
+push constant 1
+sub
+pop this 9
+push argument 2
+push this 7
+add
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+push constant 10
+add
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE31
+label IF_FALSE30
+label IF_END29
+label IF_FALSE28
+push constant 0
+return
+function Campo.GetPosicao 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push argument 2
+push this 0
+add
+pop pointer 1
+push that 0
+return
+label IF_FALSE0
+push argument 1
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 2
+push this 1
+add
+pop pointer 1
+push that 0
+return
+label IF_FALSE1
+push argument 1
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+return
+label IF_FALSE2
+push argument 1
+push constant 3
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push argument 2
+push this 3
+add
+pop pointer 1
+push that 0
+return
+label IF_FALSE3
+push argument 1
+push constant 4
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push argument 2
+push this 4
+add
+pop pointer 1
+push that 0
+return
+label IF_FALSE4
+push argument 1
+push constant 5
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push argument 2
+push this 5
+add
+pop pointer 1
+push that 0
+return
+label IF_FALSE5
+push argument 1
+push constant 6
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push argument 2
+push this 6
+add
+pop pointer 1
+push that 0
+return
+label IF_FALSE6
+push argument 1
+push constant 7
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push argument 2
+push this 7
+add
+pop pointer 1
+push that 0
+return
+label IF_FALSE7
+push constant 0
+return
+function Campo.winCondition 0
+push argument 0
+pop pointer 0
+push this 10
+push constant 1
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 9
+push constant 0
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+return
+label IF_FALSE1
+label IF_FALSE0
+push constant 0
+not
+return
+function Campo.move 2
+push argument 0
+pop pointer 0
+push argument 1
+push constant 130
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 8
+call Alvo.esquerda 1
+pop temp 0
+label IF_FALSE0
+push argument 1
+push constant 132
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 8
+call Alvo.direita 1
+pop temp 0
+label IF_FALSE1
+push argument 1
+push constant 131
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 8
+call Alvo.cima 1
+pop temp 0
+label IF_FALSE2
+push argument 1
+push constant 133
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 8
+call Alvo.baixo 1
+pop temp 0
+label IF_FALSE3
+push argument 1
+push constant 128
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 8
+call Alvo.getVertical 1
+pop local 0
+push this 8
+call Alvo.getHorizontal 1
+pop local 1
+push pointer 0
+push local 1
+push local 0
+call Campo.recebePosicao 3
+pop temp 0
+label IF_FALSE4
+push argument 1
+push constant 129
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 8
+call Alvo.getVertical 1
+pop local 0
+push this 8
+call Alvo.getHorizontal 1
+pop local 1
+push pointer 0
+push local 0
+push local 1
+call Campo.flag 3
+pop temp 0
+label IF_FALSE5
+push constant 0
+return
+function Campo.posVert 0
+push argument 0
+pop pointer 0
+push this 8
+call Alvo.getVertical 1
+return
+function Campo.posHor 0
+push argument 0
+pop pointer 0
+push this 8
+call Alvo.getHorizontal 1
+return
+function Campo.getTotal 0
+push argument 0
+pop pointer 0
+push this 10
+return
+function Campo.getFlag 0
+push argument 0
+pop pointer 0
+push this 9
+return

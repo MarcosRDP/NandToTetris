@@ -1,0 +1,1059 @@
+// Created by Marcos, Christian and Antônio, Mine Technologies.
+// File name: Mine/Campo.jack
+
+/**
+ * The campo class of the Mine Game.
+ */
+// estados:
+// 0 - vazio [hiden]
+// 1 - numero 1 [hiden]
+// 2 - numero 2 [hiden]
+// 3 - numero 3 [hiden]
+// 4 - bomba [hiden]
+// 5 - vazio
+// 6 - numero 1
+// 7 - numero 2
+// 8 - numero 3
+// 9 - bomba
+// 10 - flag <- vazio
+// 11 - flag <- numero 1
+// 12 - flag <- numero 2
+// 13 - flag <- numero 3
+// 14 - flag <- bomba
+class Campo {
+	field Array linha0;
+	field Array linha1;
+	field Array linha2;
+	field Array linha3;
+	field Array linha4;
+	field Array linha5;
+	field Array linha6;
+	field Array linha7;
+	field Alvo alvo; //Aqui foi adicionado o atributo novo
+	field int flag;
+	field int contador;
+
+	constructor Campo new(int seed){		//Construtor de campo que gera bombas aleatorias e inicia todas posições do campo
+		var int i;
+		var int j;
+		var int result;
+		var int total;
+		var int count;
+
+		let alvo = Alvo.new(); //Aqui ele foi inicializado
+
+		let flag = 10;
+		let contador = 70;
+
+		let linha0 = Array.new(10);
+		let linha1 = Array.new(10);
+		let linha2 = Array.new(10);
+		let linha3 = Array.new(10);
+		let linha4 = Array.new(10);
+		let linha5 = Array.new(10);
+		let linha6 = Array.new(10);
+		let linha7 = Array.new(10);		//Matriz de [10][8]
+
+		let i = 0;
+		let j = 0;
+
+		let count = 10;
+		let total = 79;
+		do LCGRandom.setSeed(seed); 
+
+		while(i<10)
+		{
+			while(j<8)
+			{
+				if(i = 0){
+					let linha0[j] = 0;
+				}
+				if(i = 1){
+					let linha1[j] = 0;
+				}
+				if(i = 2){
+					let linha2[j] = 0;
+				}
+				if(i = 3){
+					let linha3[j] = 0;
+				}
+				if(i = 4){
+					let linha4[j] = 0;
+				}
+				if(i = 5){
+					let linha5[j] = 0;
+				}
+				if(i = 6){
+					let linha6[j] = 0;
+				}
+				if(i = 7){
+					let linha7[j] = 0;
+				}
+				let j = j + 1;
+				let total = total - 1;
+			}
+			
+			let j = 0;
+			let i = i + 1;
+		}
+		
+		let count = 0;
+		do LCGRandom.setSeed(seed); 
+	
+		while(count < 10)
+		{
+			let i = LCGRandom.randRange(0, 7);
+			let j = LCGRandom.randRange(0, 9);
+
+			if(i=0){
+				if(linha0[j] = 4) {
+					let count = count - 1;
+				}
+				else{
+					let linha0[j] = 4;
+					
+					if(j > 0){
+						if(~(linha0[j-1] = 4)){
+							let linha0[j-1] = linha0[j-1] + 1;
+						}
+					} 
+					if(j < 9){
+						if(~(linha0[j+1] = 4)){
+							let linha0[j+1] = linha0[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha1[j-1] = 4)){
+							let linha1[j-1] = linha1[j-1] + 1;
+						}
+					} 
+					if(~(linha1[j] = 4)){
+						let linha1[j] = linha1[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha1[j+1] = 4)){
+							let linha1[j+1] = linha1[j+1] + 1;
+						}
+					}
+				}
+			}
+			if(i=1){
+				if(linha1[j] = 4) {
+					let count = count - 1;
+				}
+				else {
+					let linha1[j] = 4;
+
+					if(j > 0){
+						if(~(linha0[j-1] = 4)){
+							let linha0[j-1] = linha0[j-1] + 1;
+						}
+					} 
+					if(~(linha0[j] = 4)){
+						let linha0[j] = linha0[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha0[j+1] = 4)){
+							let linha0[j+1] = linha0[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha1[j-1] = 4)){
+							let linha1[j-1] = linha1[j-1] + 1;
+						}
+					} 
+					if(j < 9){
+						if(~(linha1[j+1] = 4)){
+							let linha1[j+1] = linha1[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha2[j-1] = 4)){
+							let linha2[j-1] = linha2[j-1] + 1;
+						}
+					} 
+					if(~(linha2[j] = 4)){
+						let linha2[j] = linha2[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha2[j+1] = 4)){
+							let linha2[j+1] = linha2[j+1] + 1;
+						}
+					}
+				}
+			}
+			if(i=2){
+				if(linha2[j] = 4) {
+					let count = count - 1;
+				}
+				else{
+					let linha2[j] = 4;
+
+					if(j > 0){
+						if(~(linha1[j-1] = 4)){
+							let linha1[j-1] = linha1[j-1] + 1;
+						}
+					} 
+					if(~(linha1[j] = 4)){
+						let linha1[j] = linha1[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha1[j+1] = 4)){
+							let linha1[j+1] = linha1[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha2[j-1] = 4)){
+							let linha2[j-1] = linha2[j-1] + 1;
+						}
+					} 
+					if(j < 9){
+						if(~(linha2[j+1] = 4)){
+							let linha2[j+1] = linha2[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha3[j-1] = 4)){
+							let linha3[j-1] = linha3[j-1] + 1;
+						}
+					} 
+					if(~(linha3[j] = 4)){
+						let linha3[j] = linha3[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha3[j+1] = 4)){
+							let linha3[j+1] = linha3[j+1] + 1;
+						}
+					}
+				}
+			}
+			if(i=3){
+				if(linha3[j] = 4) {
+					let count = count - 1;
+				}
+				else{
+					let linha3[j] = 4;
+
+					if(j > 0){
+						if(~(linha2[j-1] = 4)){
+							let linha2[j-1] = linha2[j-1] + 1;
+						}
+					} 
+					if(~(linha2[j] = 4)){
+						let linha2[j] = linha2[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha2[j+1] = 4)){
+							let linha2[j+1] = linha2[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha3[j-1] = 4)){
+							let linha3[j-1] = linha3[j-1] + 1;
+						}
+					} 
+					if(j < 9){
+						if(~(linha3[j+1] = 4)){
+							let linha3[j+1] = linha3[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha4[j-1] = 4)){
+							let linha4[j-1] = linha4[j-1] + 1;
+						}
+					} 
+					if(~(linha4[j] = 4)){
+						let linha4[j] = linha4[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha4[j+1] = 4)){
+							let linha4[j+1] = linha4[j+1] + 1;
+						}
+					}
+				}
+			}
+			if(i=4){
+				if(linha4[j] = 4) {
+					let count = count - 1;
+				}
+				else{
+					let linha4[j] = 4;
+					
+					if(j > 0){
+						if(~(linha3[j-1] = 4)){
+							let linha3[j-1] = linha3[j-1] + 1;
+						}
+					} 
+					if(~(linha3[j] = 4)){
+						let linha3[j] = linha3[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha3[j+1] = 4)){
+							let linha3[j+1] = linha3[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha4[j-1] = 4)){
+							let linha4[j-1] = linha4[j-1] + 1;
+						}
+					} 
+					if(j < 9){
+						if(~(linha4[j+1] = 4)){
+							let linha4[j+1] = linha4[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha5[j-1] = 4)){
+							let linha5[j-1] = linha5[j-1] + 1;
+						}
+					} 
+					if(~(linha5[j] = 4)){
+						let linha5[j] = linha5[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha5[j+1] = 4)){
+							let linha5[j+1] = linha5[j+1] + 1;
+						}
+					}	
+				}
+			}
+			if(i=5){
+				if(linha5[j] = 4) {
+					let count = count - 1;
+				}
+				else{
+					let linha5[j] = 4;
+
+					if(j > 0){
+						if(~(linha4[j-1] = 4)){
+							let linha4[j-1] = linha4[j-1] + 1;
+						}
+					} 
+					if(~(linha4[j] = 4)){
+						let linha4[j] = linha4[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha4[j+1] = 4)){
+							let linha4[j+1] = linha4[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha5[j-1] = 4)){
+							let linha5[j-1] = linha5[j-1] + 1;
+						}
+					} 
+					if(j < 9){
+						if(~(linha5[j+1] = 4)){
+							let linha5[j+1] = linha5[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha6[j-1] = 4)){
+							let linha6[j-1] = linha6[j-1] + 1;
+						}
+					} 
+					if(~(linha6[j] = 4)){
+						let linha6[j] = linha6[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha6[j+1] = 4)){
+							let linha6[j+1] = linha6[j+1] + 1;
+						}
+					}
+				}
+			}
+			if(i=6){
+				if(linha6[j] = 4) {
+					let count = count - 1;
+				}
+				else{
+					let linha6[j] = 4;
+
+					if(j > 0){
+						if(~(linha5[j-1] = 4)){
+							let linha5[j-1] = linha5[j-1] + 1;
+						}
+					} 
+					if(~(linha5[j] = 4)){
+						let linha5[j] = linha5[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha5[j+1] = 4)){
+							let linha5[j+1] = linha5[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha6[j-1] = 4)){
+							let linha6[j-1] = linha6[j-1] + 1;
+						}
+					} 
+					if(j < 9){
+						if(~(linha6[j+1] = 4)){
+							let linha6[j+1] = linha6[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha7[j-1] = 4)){
+							let linha7[j-1] = linha7[j-1] + 1;
+						}
+					} 
+					if(~(linha7[j] = 4)){
+						let linha7[j] = linha7[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha7[j+1] = 4)){
+							let linha7[j+1] = linha7[j+1] + 1;
+						}
+					}
+				}
+			}
+			if(i=7){
+				if(linha7[j] = 4) {
+					let count = count - 1;
+				}
+				else {
+					let linha7[j] = 4;
+
+					if(j > 0){
+						if(~(linha6[j-1] = 4)){
+							let linha6[j-1] = linha6[j-1] + 1;
+						}
+					} 
+					if(~(linha6[j] = 4)){
+						let linha6[j] = linha6[j] + 1;
+					}
+					if(j < 9){
+						if(~(linha6[j+1] = 4)){
+							let linha6[j+1] = linha6[j+1] + 1;
+						}
+					}
+
+					if(j > 0){
+						if(~(linha7[j-1] = 4)){
+							let linha7[j-1] = linha7[j-1] + 1;
+						}
+					} 
+					if(j < 9){
+						if(~(linha7[j+1] = 4)){
+							let linha7[j+1] = linha7[j+1] + 1;
+						}
+					}
+				}
+			}
+			
+			let count = count + 1;
+		}
+
+
+
+		return this;
+	}
+
+	method void recebePosicao(int c, int l){	//Metodo que recebe posicao e analisa se eh uma bomba
+		if(c = 0){
+			if(linha0[l] = 4){
+				//this.gameover();
+			}
+		}
+		if(c = 1){
+			if(linha1[l] = 4){
+				//this.gameover();
+			}
+		}
+		if(c = 2){
+			if(linha2[l] = 4){
+				//this.gameover();
+			}
+		}
+		if(c = 3){
+			if(linha3[l] = 4){
+				//this.gameover();
+			}
+		}
+		if(c = 4){
+			if(linha4[l] = 4){
+				//this.gameover();
+			}
+		}
+		if(c = 5){
+			if(linha5[l] = 4){
+				//this.gameover();
+			}
+		}
+		if(c = 6){
+			if(linha6[l] = 4){
+				//this.gameover();
+			}
+		}
+		if(c = 7){
+			if(linha7[l] = 4){
+				//this.gameover();
+			}
+		}
+		do tornaVisivel(l,c);
+		return;
+	}
+
+	method void tornaVisivel(int c, int l){	//Método que recebe uma posição do campo e analisa o estado dela e altera pra vísivel
+		var int i;
+		var int j;
+
+		let i = alvo.getVertical();
+		let j = alvo.getHorizontal();
+		if(c = 0){
+			if(linha0[l]>4) //campo ja visivel
+			{
+			}
+			if(linha0[l]=4) //campo bomba
+			{
+				if(c = i){
+					if(j = l){
+						let linha0[l]=9;
+					}
+				}
+			}
+			if(linha0[l]=3) //3 -> mostra somente esse campo
+			{
+				let linha0[l]=8;
+				let contador = contador - 1;
+			}
+			if(linha0[l]=2) //2
+			{
+				let linha0[l]=7;
+				let contador = contador - 1;
+			}
+			if(linha0[l]=1) //1
+			{
+				let linha0[l]=6;
+				let contador = contador - 1;
+			}
+			if(linha0[l]=0) 		//vazio 
+			{
+				let linha0[l]=5;
+				do tornaVisivel(c+1,l);
+				do tornaVisivel(c-1,l);
+				do tornaVisivel(c,l+1);
+				do tornaVisivel(c,l-1);
+				do tornaVisivel(c+1,l+1);
+				do tornaVisivel(c+1,l-1);
+				do tornaVisivel(c-1,l+1);
+				do tornaVisivel(c-1,l-1);
+				let contador = contador - 1;
+			}
+		}
+
+		if(c = 1){
+			if(linha1[l]>4) //campo ja visivel
+			{
+			}
+			if(linha1[l]=4) //3 -> mostra somente esse campo
+			{
+				if(c = i){
+					if(j = l){
+						let linha1[l]=9;
+					}
+				}
+			}
+			if(linha1[l]=3) //3 -> mostra somente esse campo
+			{
+				let linha1[l]=8;
+				let contador = contador - 1;
+			}
+			if(linha1[l]=2) //2
+			{
+				let linha1[l]=7;
+				let contador = contador - 1;
+			}
+			if(linha1[l]=1) //1
+			{
+				let linha1[l]=6;
+				let contador = contador - 1;
+			}
+			if(linha1[l]=0) 		//vazio 
+			{
+				let linha1[l]=5;
+				do tornaVisivel(c+1,l);
+				do tornaVisivel(c-1,l);
+				do tornaVisivel(c,l+1);
+				do tornaVisivel(c,l-1);
+				do tornaVisivel(c+1,l+1);
+				do tornaVisivel(c+1,l-1);
+				do tornaVisivel(c-1,l+1);
+				do tornaVisivel(c-1,l-1);
+				let contador = contador - 1;
+			}
+		}
+
+		if(c = 2){
+			if(linha2[l]>4) //campo ja visivel
+			{
+			}
+			if(linha2[l]=4) //campo bomba
+			{
+				if(c = i){
+					if(j = l){
+						let linha2[l]=9;
+					}
+				}
+			}
+			if(linha2[l]=3) //3 -> mostra somente esse campo
+			{
+				let linha2[l]=8;
+				let contador = contador - 1;
+			}
+			if(linha2[l]=2) //2
+			{
+				let linha2[l]=7;
+				let contador = contador - 1;
+			}
+			if(linha2[l]=1) //1
+			{
+				let linha2[l]=6;
+				let contador = contador - 1;
+			}
+			if(linha2[l]=0) 		//vazio 
+			{
+				let linha2[l]=5;
+				do tornaVisivel(c+1,l);
+				do tornaVisivel(c-1,l);
+				do tornaVisivel(c,l+1);
+				do tornaVisivel(c,l-1);
+				do tornaVisivel(c+1,l+1);
+				do tornaVisivel(c+1,l-1);
+				do tornaVisivel(c-1,l+1);
+				do tornaVisivel(c-1,l-1);
+				let contador = contador - 1;
+			}
+		}
+
+		if(c = 3){
+			if(linha3[l]>4) //campo ja visivel
+			{
+			}
+			if(linha3[l]=4) //campo bomba
+			{
+				if(c = i){
+					if(j = l){
+						let linha3[l]=9;
+					}
+				}
+			}
+			if(linha3[l]=3) //3 -> mostra somente esse campo
+			{
+				let linha3[l]=8;
+				let contador = contador - 1;
+			}
+			if(linha3[l]=2) //2
+			{
+				let linha3[l]=7;
+				let contador = contador - 1;
+			}
+			if(linha3[l]=1) //1
+			{
+				let linha3[l]=6;
+				let contador = contador - 1;
+			}
+			if(linha3[l]=0) 		//vazio 
+			{
+				let linha3[l]=5;
+				do tornaVisivel(c+1,l);
+				do tornaVisivel(c-1,l);
+				do tornaVisivel(c,l+1);
+				do tornaVisivel(c,l-1);
+				do tornaVisivel(c+1,l+1);
+				do tornaVisivel(c+1,l-1);
+				do tornaVisivel(c-1,l+1);
+				do tornaVisivel(c-1,l-1);
+				let contador = contador - 1;
+			}
+		}
+
+		if(c = 4){
+			if(linha4[l]>4) //campo ja visivel
+			{
+			}
+			if(linha4[l]=4) //campo bomba
+			{
+				if(c = i){
+					if(j = l){
+						let linha4[l]=9;
+					}
+				}
+			}
+			if(linha4[l]=3) //3 -> mostra somente esse campo
+			{
+				let linha4[l]=8;
+				let contador = contador - 1;
+			}
+			if(linha4[l]=2) //2
+			{
+				let linha4[l]=7;
+				let contador = contador - 1;
+			}
+			if(linha4[l]=1) //1
+			{
+				let linha4[l]=6;
+				let contador = contador - 1;
+			}
+			if(linha4[l]=0) 		//vazio 
+			{
+				let linha4[l]=5;
+				do tornaVisivel(c+1,l);
+				do tornaVisivel(c-1,l);
+				do tornaVisivel(c,l+1);
+				do tornaVisivel(c,l-1);
+				do tornaVisivel(c+1,l+1);
+				do tornaVisivel(c+1,l-1);
+				do tornaVisivel(c-1,l+1);
+				do tornaVisivel(c-1,l-1);
+				let contador = contador - 1;
+			}
+		}
+
+		if(c = 5){
+			if(linha5[l]>4) //campo ja visivel
+			{
+			}
+			if(linha5[l]=4) //campo bomba
+			{
+				if(c = i){
+					if(j = l){
+						let linha5[l]=9;
+					}
+				}
+			}
+			if(linha5[l]=3) //3 -> mostra somente esse campo
+			{
+				let linha5[l]=8;
+				let contador = contador - 1;
+			}
+			if(linha5[l]=2) //2
+			{
+				let linha5[l]=7;
+				let contador = contador - 1;
+			}
+			if(linha5[l]=1) //1
+			{
+				let linha5[l]=6;
+				let contador = contador - 1;
+			}
+			if(linha5[l]=0) 		//vazio 
+			{
+				let linha5[l]=5;
+				do tornaVisivel(c+1,l);
+				do tornaVisivel(c-1,l);
+				do tornaVisivel(c,l+1);
+				do tornaVisivel(c,l-1);
+				do tornaVisivel(c+1,l+1);
+				do tornaVisivel(c+1,l-1);
+				do tornaVisivel(c-1,l+1);
+				do tornaVisivel(c-1,l-1);
+				let contador = contador - 1;
+			}
+		}
+
+		if(c = 6){
+			if(linha6[l]>4) //campo ja visivel
+			{
+			}
+			if(linha6[l]=4) //campo bomba
+			{
+				if(c = i){
+					if(j = l){
+						let linha6[l]=9;
+					}
+				}
+			}
+			if(linha6[l]=4) //campo bomba
+			{
+				let linha6[l]=9;
+			}
+			if(linha6[l]=3) //3 -> mostra somente esse campo
+			{
+				let linha6[l]=8;
+				let contador = contador - 1;
+			}
+			if(linha6[l]=2) //2
+			{
+				let linha6[l]=7;
+				let contador = contador - 1;
+			}
+			if(linha6[l]=1) //1
+			{
+				let linha6[l]=6;
+				let contador = contador - 1;
+			}
+			if(linha6[l]=0) 		//vazio 
+			{
+				let linha6[l]=5;
+				do tornaVisivel(c+1,l);
+				do tornaVisivel(c-1,l);
+				do tornaVisivel(c,l+1);
+				do tornaVisivel(c,l-1);
+				do tornaVisivel(c+1,l+1);
+				do tornaVisivel(c+1,l-1);
+				do tornaVisivel(c-1,l+1);
+				do tornaVisivel(c-1,l-1);
+				let contador = contador - 1;
+			}
+		}
+
+		if(c = 7){
+			if(linha7[l]>4) //campo ja visivel
+			{
+			}
+			if(linha7[l]=4) //campo bomba
+			{
+				if(c = i){
+					if(j = l){
+						let linha7[l]=9;
+					}
+				}
+			}
+			if(linha7[l]=3) //3 -> mostra somente esse campo
+			{
+				let linha7[l]=8;
+				let contador = contador - 1;
+			}
+			if(linha7[l]=2) //2
+			{
+				let linha7[l]=7;
+				let contador = contador - 1;
+			}
+			if(linha7[l]=1) //1
+			{
+				let linha7[l]=6;
+				let contador = contador - 1;
+			}
+			if(linha7[l]=0) 		//vazio 
+			{
+				let linha7[l]=5;
+				do tornaVisivel(c+1,l);
+				do tornaVisivel(c-1,l);
+				do tornaVisivel(c,l+1);
+				do tornaVisivel(c,l-1);
+				do tornaVisivel(c+1,l+1);
+				do tornaVisivel(c+1,l-1);
+				do tornaVisivel(c-1,l+1);
+				do tornaVisivel(c-1,l-1);
+				let contador = contador - 1;
+			}
+		}
+		return;
+	}
+
+	method void flag(int c, int l){
+		if(c = 0){			
+			if(linha0[l] > 9){
+				let flag = flag + 1;
+				let linha0[l] = linha0[l] - 10;
+			}
+			else{
+				if(flag > 0){
+					if(linha0[l] < 5){
+						let flag = flag - 1;
+						let linha0[l] = linha0[l] + 10;
+					}
+				}
+			}
+		}
+		if(c = 1){
+			if(linha1[l] > 9){
+				let flag = flag + 1;
+				let linha1[l] = linha1[l] - 10;
+			}
+			else{
+				if(flag > 0){
+					if(linha1[l] < 5){
+						let flag = flag - 1;
+						let linha1[l] = linha1[l] + 10;
+					}
+				}
+			}
+		}
+		if(c = 2){
+			if(linha2[l] > 9){
+				let flag = flag + 1;
+				let linha2[l] = linha2[l] - 10;
+			}
+			else {
+				if(flag > 0){
+					if(linha2[l] < 5){
+						let flag = flag - 1;
+						let linha2[l] = linha2[l] + 10;
+					}
+				}
+			}
+		}
+		if(c = 3){
+			if(linha3[l] > 9){
+				let flag = flag + 1;
+				let linha3[l] = linha3[l] - 10;
+			}
+			else{
+				if(flag > 0){
+					if(linha3[l] < 5){
+						let flag = flag - 1;
+						let linha3[l] = linha3[l] + 10;
+					}
+				}
+			}
+		}
+		if(c = 4){
+			if(linha4[l] > 9){
+				let flag = flag + 1;
+				let linha4[l] = linha4[l] - 10;
+			}
+			else{
+				if(flag > 0){
+					if(linha4[l] < 5){
+						let flag = flag - 1;
+						let linha4[l] = linha4[l] + 10;
+					}
+				}
+			}
+		}
+		if(c = 5){
+			if(linha5[l] > 9){
+				let flag = flag + 1;
+				let linha5[l] = linha5[l] - 10;
+			}
+			else{
+				if(flag > 0){
+					if(linha5[l] < 5){
+						let flag = flag - 1;
+						let linha5[l] = linha5[l] + 10;
+					}
+				}
+			}
+		}
+		if(c = 6){
+			if(linha6[l] > 9){
+				let flag = flag + 1;
+				let linha6[l] = linha6[l] - 10;
+			}
+			else{
+				if(flag > 0){
+					if(linha6[l] < 5){
+						let flag = flag - 1;
+						let linha6[l] = linha6[l] + 10;
+					}
+				}
+			}
+		}
+		if(c = 7){
+			if(linha7[l] > 9){
+				let flag = flag + 1;
+				let linha7[l] = linha7[l] - 10;
+			}
+			else{
+				if(flag > 0){
+					if(linha7[l] < 5){
+						let flag = flag - 1;
+						let linha7[l] = linha7[l] + 10;
+					}
+				}
+			}
+		}
+
+		return;
+	}
+
+	method int GetPosicao(int c, int l){
+		if(c = 0){
+			return linha0[l];
+		}
+		if(c = 1){
+			return linha1[l];
+		}
+		if(c = 2){
+			return linha2[l];
+		}
+		if(c = 3){
+			return linha3[l];
+		}
+		if(c = 4){
+			return linha4[l];
+		}
+		if(c = 5){
+			return linha5[l];
+		}
+		if(c = 6){
+			return linha6[l];
+		}
+		if(c = 7){
+			return linha7[l];
+		}
+
+		return 0;
+	}
+
+	method boolean winCondition(){
+		if(contador < 1){
+			if(flag = 0){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	method void move(int movement){ //Controla o movimento do alvo, com o código de movement equivalente ao código da tecla
+		var int vert;
+		var int hor;
+		if(movement = 130){ //Ao pressionar a seta esquerdo
+			do alvo.esquerda();
+		}
+		if(movement = 132){ //Ao pressionar a seta direito
+			do alvo.direita();
+		}
+		if(movement = 131){ //Ao pressionar a seta para cima
+			do alvo.cima();
+		}
+		if(movement = 133){  //Ao pressionar a seta para baixo
+			do alvo.baixo();
+		}
+		if(movement = 128){  //Ao pressionar enter
+			let vert = alvo.getVertical();
+			let hor = alvo.getHorizontal();
+			do recebePosicao(hor, vert);
+		}
+		if(movement = 129){  //Ao pressionar backspace
+			let vert = alvo.getVertical();
+			let hor = alvo.getHorizontal();
+			do flag(vert, hor);
+		}
+
+		return;
+	}
+
+	//Esses abaixo são Getters do alvo, apenas caso precise usar
+
+	method int posVert(){
+		return alvo.getVertical();
+	}
+
+	method int posHor(){
+		return alvo.getHorizontal();
+	}
+
+	method int getTotal(){
+		return contador;
+	}
+
+	method int getFlag(){
+		return flag;
+	}
+}
